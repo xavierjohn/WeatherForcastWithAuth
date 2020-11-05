@@ -1,2 +1,2 @@
-# WeatherForcastWithAuth
-Weather Forcast Sample with Authorization and Unit test.
+# Weather Forcast With Authorization
+Weather Forcast Sample with Authorization Unit test.
