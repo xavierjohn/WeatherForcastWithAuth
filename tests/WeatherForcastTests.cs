@@ -8,10 +8,11 @@ using Xunit;
 
 namespace WeatherTests
 {
-    public class WeatherForcastTests : IClassFixture<AuthWebApplicationFactory<Startup>>
+    [Collection("Controller collection")]
+    public class WeatherForcastTests
     {
-        private readonly AuthWebApplicationFactory<Startup> _factory;
-        public WeatherForcastTests(AuthWebApplicationFactory<Startup> factory)
+        private readonly TestWebApplicationFactory _factory;
+        public WeatherForcastTests(TestWebApplicationFactory factory)
         {
             this._factory = factory;
         }
@@ -21,7 +22,7 @@ namespace WeatherTests
         {
             // Arrange
             var client = _factory
-                .WithTestClaim(new List<Claim>() {
+                .WithTestSchemeAuth(new List<Claim>() {
                        new Claim("scp", "access_as_user")
                 })
                 .CreateClient();
@@ -40,7 +41,7 @@ namespace WeatherTests
         {
             // Arrange
             var client = _factory
-                .WithTestClaim(new List<Claim>() {
+                .WithTestSchemeAuth(new List<Claim>() {
                        new Claim("scp", "foobar")
                 })
                 .CreateClient();
