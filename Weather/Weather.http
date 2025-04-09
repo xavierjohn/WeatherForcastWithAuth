@@ -1,0 +1,8 @@
+@HostAddress = https://localhost:7268
+@AccessToken = {yourtoken}
+
+GET {{HostAddress}}/weatherforecast/
+Authorization: Bearer {{AccessToken}}
+Accept: application/json
+
+###
